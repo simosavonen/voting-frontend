@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+   "candidates": [
+    {
+      "id": 1,
+      "name": "Ehdokas Esko",
+      "party": "Keskusta",
+      "profession": "Software developer",
+      "recidency": "Turku"
+    },
+    {
+      "id": 2,
+      "name": "Ehdokas Eija",
+      "party": "Kokoomus",
+      "profession": "Product owner",
+      "recidency": "Naantali"
+    }
+  ]
+}

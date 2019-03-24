@@ -1,21 +1,27 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Buefy from 'buefy'
-import Candidate from './index.vue'
+import Vote from './index.vue'
 
 const localVue = createLocalVue()
 
 localVue.use(Buefy)
 localVue.use(Vuex)
 
-describe('Candidate', () => {
+describe('Vote', () => {
   let store
-
+  let actions
   const $route = {
-    params: { id: '1' }
+    params: { candidate: '1' }
+  }
+  const $router = {
+    replace: jest.fn()
   }
 
   beforeEach(() => {
+    actions = {
+      VOTE: jest.fn()
+    }
     store = new Vuex.Store({
       state: {
         candidates: [
@@ -26,20 +32,21 @@ describe('Candidate', () => {
             profession: 'Software developer',
             recidency: 'Turku'
           }
-        ]
-      }
+        ],
+        tupasToken: 'dummy'
+      },
+      actions
     })
   })
-  test('should show candidate name, profession and residency', () => {
-    const wrapper = mount(Candidate, {
+  test('clicking vote should trigger VOTE action', () => {
+    const wrapper = mount(Vote, {
       store,
       localVue,
-      mocks: { $route },
+      mocks: { $route, $router },
       stubs: ['nuxt-link']
     })
-    const details = wrapper.findAll('p.title').wrappers.map(w => w.text())
-    expect(wrapper.find('h1').text()).toBe('1 Ehdokas Esko')
-    expect(details).toContain('Software developer')
-    expect(details).toContain('Turku')
+    wrapper.find('button').trigger('click')
+    expect(actions.VOTE).toHaveBeenCalled()
+    expect($router.replace).toHaveBeenCalled()
   })
 })

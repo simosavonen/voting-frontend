@@ -37,6 +37,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     // Doc: https://buefy.github.io/#/documentation
     ['nuxt-buefy', { css: false }],
     '@nuxtjs/pwa'
@@ -46,6 +47,13 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3002',
+      pathRewrite: { '^/api': '' }
+    }
   },
 
   /*

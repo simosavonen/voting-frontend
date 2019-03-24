@@ -41,6 +41,9 @@ export default {
       ]
     }
   },
-  computed: mapState(['tupasDetails'])
+  computed: mapState(['tupasDetails']),
+  mounted() {
+    this.$store.dispatch('FETCH_CANDIDATES')
+  }
 }
 </script>

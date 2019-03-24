@@ -45,6 +45,7 @@ export default {
       this.$store.commit('setTupasToken', 'faketoken')
     },
     vote() {
+      this.$store.dispatch('VOTE', this.selectedCandidate.id)
       this.$router.replace('/')
     }
   }

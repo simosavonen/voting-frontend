@@ -82,6 +82,7 @@
       <div>
         <nuxt-link
           :to="`/vote/${selectedCandidate.id}`"
+          :disabled="alreadyVoted"
           class="button is-large is-primary is-pulled-right"
         >
           Tunnistaudu
@@ -106,7 +107,7 @@ export default {
         c => c.id.toString() === this.$route.params.id
       )
     },
-    ...mapState(['candidates'])
+    ...mapState(['candidates', 'alreadyVoted'])
   }
 }
 </script>

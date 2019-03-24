@@ -1,27 +1,23 @@
 export const state = () => ({
-  candidates: [
-    {
-      id: 1,
-      name: 'Ehdokas Esko',
-      party: 'Keskusta',
-      profession: 'Software developer',
-      recidency: 'Turku'
-    },
-    {
-      id: 2,
-      name: 'Ehdokas Eija',
-      party: 'Kokoomus',
-      profession: 'Product owner',
-      recidency: 'Naantali'
-    }
-  ],
+  candidates: [],
   tupasToken: null,
-  tupasDetails: null
+  tupasDetails: null,
+  alreadyVoted: false
 })
 
 export const mutations = {
   setTupasToken(state, token) {
     state.tupasToken = token
     state.tupasDetails = { name: 'Juho Äänestäjä' }
+  },
+  setCandidates(state, data) {
+    state.candidates = data
+  }
+}
+
+export const actions = {
+  async FETCH_CANDIDATES({ commit }) {
+    const data = await this.$axios.$get('/api/candidates')
+    commit('setCandidates', data.candidates)
   }
 }
