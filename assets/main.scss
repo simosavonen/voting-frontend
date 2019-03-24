@@ -18,6 +18,12 @@ $colors: (
     "danger": ($danger, $danger-invert)
 );
 
+
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+
+body {
+    font-size: 1.5rem;
+}
+

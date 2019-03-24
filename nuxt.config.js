@@ -1,7 +1,7 @@
 import pkg from './package'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
    ** Headers of the page
@@ -58,6 +58,7 @@ export default {
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
+        config.devtool = '#source-map'
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

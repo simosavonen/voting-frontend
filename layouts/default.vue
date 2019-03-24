@@ -5,29 +5,21 @@
       role="navigation"
       aria-label="main navigation"
     >
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">2019 Finnish parliamentary election</a>
-
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
+      <div class="navbar-brand navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/"
+            >2019 Finnish parliamentary election</a
+          >
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            {{ tupasDetails ? tupasDetails.name : '' }}
+          </div>
         </div>
       </div>
     </nav>
 
     <section class="main-content columns">
-      <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch"></p>
-        <ul class="menu-list">
-          <li v-for="(item, key) of items" :key="key">
-            <nuxt-link :to="item.to" exact-active-class="is-active">
-              <b-icon :icon="item.icon" /> {{ item.title }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </aside>
-
       <div class="container column is-10">
         <nuxt />
       </div>
@@ -36,6 +28,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -47,6 +40,7 @@ export default {
         }
       ]
     }
-  }
+  },
+  computed: mapState(['tupasDetails'])
 }
 </script>
