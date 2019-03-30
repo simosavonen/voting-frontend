@@ -11,7 +11,7 @@
           </nuxt-link>
         </li>
         <li class="is-active">
-          <a href="#" aria-current="page">Tunnistaudu ja äänestä</a>
+          <a href="#" aria-current="page">Authorize and vote</a>
         </li>
       </ul>
     </nav>
@@ -27,18 +27,11 @@
 import { mapState } from 'vuex'
 export default {
   name: 'Vote',
-  validate({ params, store }) {
-    return store.state.candidates.some(
-      c => c.id.toString() === params.candidate
-    )
-  },
   computed: {
+    ...mapState(['tupasToken']),
     selectedCandidate() {
-      return this.candidates.find(
-        c => c.id.toString() === this.$route.params.candidate
-      )
-    },
-    ...mapState(['candidates', 'tupasToken'])
+      return this.$route.params.selectedCandidate
+    }
   },
   methods: {
     tupasLogin() {

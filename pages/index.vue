@@ -63,6 +63,10 @@ import { mapState } from 'vuex'
 export default {
   name: 'Candidates',
   components: { PartyTag },
-  computed: mapState(['candidates'])
+  computed: mapState(['candidates']),
+  async fetch({ store, $axios }) {
+    const data = await $axios.$get('/api/candidates')
+    store.commit('setCandidates', data.candidates)
+  }
 }
 </script>

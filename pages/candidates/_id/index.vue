@@ -43,7 +43,7 @@
             <div class="level-item has-text-centered">
               <div>
                 <p class="heading">Age</p>
-                <p class="title">40</p>
+                <p class="title">{{ selectedCandidate.age }}</p>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
             <div class="level-item has-text-centered">
               <div>
                 <p class="heading">Education</p>
-                <p class="title">Master of martial arts</p>
+                <p class="title">{{ selectedCandidate.education }}</p>
               </div>
             </div>
             <div class="level-item has-text-centered">
@@ -81,11 +81,14 @@
       </div>
       <div>
         <nuxt-link
-          :to="`/vote/${selectedCandidate.id}`"
+          :to="{
+            name: 'vote',
+            params: { selectedCandidate }
+          }"
           :disabled="alreadyVoted"
           class="button is-large is-primary is-pulled-right"
         >
-          Tunnistaudu
+          Authorize and vote
         </nuxt-link>
       </div>
     </div>
@@ -98,16 +101,17 @@ import PartyTag from '@/components/PartyTag.vue'
 export default {
   name: 'Candidate',
   components: { PartyTag },
-  validate({ params, store }) {
-    return store.state.candidates.some(c => c.id.toString() === params.id)
+  data() {
+    return {
+      selectedCandidate: {}
+    }
   },
   computed: {
-    selectedCandidate() {
-      return this.candidates.find(
-        c => c.id.toString() === this.$route.params.id
-      )
-    },
-    ...mapState(['candidates', 'alreadyVoted'])
+    ...mapState(['alreadyVoted'])
+  },
+  async asyncData({ params, $axios }) {
+    const data = await $axios.$get(`/api/candidates/${params.id}`)
+    return { selectedCandidate: data }
   }
 }
 </script>

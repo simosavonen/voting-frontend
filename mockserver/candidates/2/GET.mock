@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "id": 2,
+      "name": "Ehdokas Eija",
+      "party": "Kokoomus",
+      "profession": "Product owner",
+      "recidency": "Naantali",
+      "age": 42,
+      "education": "MD"
+}

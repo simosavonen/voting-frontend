@@ -14,7 +14,7 @@ export default {
   props: {
     party: {
       type: String,
-      required: true
+      default: null
     }
   },
   computed: {

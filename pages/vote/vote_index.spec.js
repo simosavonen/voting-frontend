@@ -12,7 +12,7 @@ describe('Vote', () => {
   let store
   let actions
   const $route = {
-    params: { candidate: '1' }
+    params: { selectedCandidate: { id: 1 } }
   }
   const $router = {
     replace: jest.fn()
