@@ -16,7 +16,7 @@ describe('Candidate', () => {
   beforeEach(() => {
     store = new Vuex.Store({
       state: {
-        alreadyVoted: false
+        voted: false
       }
     })
   })
@@ -34,7 +34,7 @@ describe('Candidate', () => {
         name: 'Ehdokas Esko',
         party: 'Keskusta',
         profession: 'Software developer',
-        recidency: 'Turku'
+        residency: 'Turku'
       }
     })
     const details = wrapper.findAll('p.title').wrappers.map(w => w.text())

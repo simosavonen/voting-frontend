@@ -46,12 +46,15 @@ export default {
    ** Axios module configuration
    */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    port: 3001
   },
 
   proxy: {
+    '/api/login': {
+      target: 'http://localhost:8080'
+    },
     '/api': {
-      target: 'http://localhost:3002',
+      target: 'http://localhost:8080',
       pathRewrite: { '^/api': '' }
     }
   },

@@ -23,8 +23,8 @@
           <b-table-column field="profession" label="Profession" sortable>
             {{ props.row.profession }}
           </b-table-column>
-          <b-table-column field="recidency" label="Residency" sortable>
-            {{ props.row.recidency }}
+          <b-table-column field="residency" label="Residency" sortable>
+            {{ props.row.residency }}
           </b-table-column>
         </template>
         <template slot="detail" slot-scope="props">
@@ -45,6 +45,7 @@
                 </p>
                 <nuxt-link
                   :to="`candidates/${props.row.id}`"
+                  :disabled="voted"
                   class="is-size-4 is-pulled-right"
                   >Vote</nuxt-link
                 >
@@ -63,10 +64,10 @@ import { mapState } from 'vuex'
 export default {
   name: 'Candidates',
   components: { PartyTag },
-  computed: mapState(['candidates']),
+  computed: mapState(['candidates', 'voted']),
   async fetch({ store, $axios }) {
-    const data = await $axios.$get('/api/candidates')
-    store.commit('setCandidates', data.candidates)
+    const data = await $axios.$get('/api/candidate')
+    store.commit('setCandidates', data)
   }
 }
 </script>

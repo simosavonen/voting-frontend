@@ -20,14 +20,14 @@ describe('Candidates', () => {
             name: 'Ehdokas Esko',
             party: 'Keskusta',
             profession: 'Software developer',
-            recidency: 'Turku'
+            residency: 'Turku'
           },
           {
             id: 2,
             name: 'Ehdokas Eija',
             party: 'Kokoomus',
             profession: 'Product owner',
-            recidency: 'Naantali'
+            residency: 'Naantali'
           }
         ]
       }

@@ -30,8 +30,8 @@
           <div class="level is-mobile">
             <div class="level-item has-text-centered">
               <div>
-                <p class="heading">Recidency</p>
-                <p class="title">{{ selectedCandidate.recidency }}</p>
+                <p class="heading">Residency</p>
+                <p class="title">{{ selectedCandidate.residency }}</p>
               </div>
             </div>
             <div class="level-item has-text-centered">
@@ -85,7 +85,7 @@
             name: 'vote',
             params: { selectedCandidate }
           }"
-          :disabled="alreadyVoted"
+          :disabled="voted"
           class="button is-large is-primary is-pulled-right"
         >
           Authorize and vote
@@ -107,10 +107,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['alreadyVoted'])
+    ...mapState(['voted'])
   },
   async asyncData({ params, $axios }) {
-    const data = await $axios.$get(`/api/candidates/${params.id}`)
+    const data = await $axios.$get(`/api/candidate/${params.id}`)
     return { selectedCandidate: data }
   }
 }

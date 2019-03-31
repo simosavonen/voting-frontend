@@ -7,7 +7,9 @@
 <script>
 const partyToCssClass = {
   Keskusta: 'is-keskusta',
-  Kokoomus: 'is-kokoomus'
+  Kokoomus: 'is-kokoomus',
+  SDP: 'is-sdp',
+  Vihreät: 'is-vihreat'
 }
 
 export default {
@@ -31,11 +33,19 @@ export default {
 
   &.is-keskusta {
     color: white;
-    background-color: green;
+    background-color: #71ad2c;
   }
   &.is-kokoomus {
     color: white;
     background-color: blue;
+  }
+  &.is-sdp {
+    color: white;
+    background-color: #d7000a;
+  }
+  &.is-vihreat {
+    color: white;
+    background-color: #61bf1a;
   }
 }
 </style>

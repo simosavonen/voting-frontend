@@ -7,7 +7,7 @@ Response-Delay: 500
       "name": "Ehdokas Esko",
       "party": "Keskusta",
       "profession": "Software developer",
-      "recidency": "Turku",
+      "residency": "Turku",
       "education": "MSc",
       "age": 42
 }

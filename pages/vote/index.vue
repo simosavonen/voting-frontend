@@ -15,7 +15,7 @@
         </li>
       </ul>
     </nav>
-    <img v-if="!tupasToken" src="/tupas.png" @click="tupasLogin" />
+    <img v-if="!tupasDetails" src="/tupas.png" @click="tupasLogin" />
     <div v-else class="content">
       <h1>Vote candidate</h1>
       <button class="button is-large is-primary" @click="vote">Vote</button>
@@ -28,18 +28,17 @@ import { mapState } from 'vuex'
 export default {
   name: 'Vote',
   computed: {
-    ...mapState(['tupasToken']),
+    ...mapState(['tupasDetails']),
     selectedCandidate() {
       return this.$route.params.selectedCandidate
     }
   },
   methods: {
     tupasLogin() {
-      this.$store.commit('setTupasToken', 'faketoken')
+      this.$store.dispatch('TUPAS_LOGIN')
     },
     vote() {
       this.$store.dispatch('VOTE', this.selectedCandidate.id)
-      this.$router.replace('/')
     }
   }
 }

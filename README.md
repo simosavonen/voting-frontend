@@ -1,4 +1,4 @@
-# vaalikone
+# voting-frontend
 
 > My flawless Nuxt.js project
 

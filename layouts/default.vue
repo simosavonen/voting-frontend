@@ -13,7 +13,7 @@
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
-            {{ tupasDetails ? tupasDetails.name : '' }}
+            {{ tupasDetails }}
           </div>
         </div>
       </div>

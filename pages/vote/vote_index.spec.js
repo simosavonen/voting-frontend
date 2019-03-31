@@ -30,10 +30,10 @@ describe('Vote', () => {
             name: 'Ehdokas Esko',
             party: 'Keskusta',
             profession: 'Software developer',
-            recidency: 'Turku'
+            residency: 'Turku'
           }
         ],
-        tupasToken: 'dummy'
+        tupasDetails: 'dummy'
       },
       actions
     })
@@ -47,6 +47,5 @@ describe('Vote', () => {
     })
     wrapper.find('button').trigger('click')
     expect(actions.VOTE).toHaveBeenCalled()
-    expect($router.replace).toHaveBeenCalled()
   })
 })
