@@ -35,10 +35,10 @@ export default {
   },
   methods: {
     tupasLogin() {
-      this.$store.dispatch('TUPAS_LOGIN')
+      // do something
     },
     vote() {
-      this.$store.dispatch('VOTE', this.selectedCandidate.id)
+      // do something
     }
   }
 }

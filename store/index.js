@@ -1,21 +1,11 @@
 import tupasMockData from './tupasmockdata.json'
 
 export const state = () => ({
-  candidates: [],
-  tupasDetails: null,
-  voted: false
+  // TODO
 })
 
 export const mutations = {
-  setTupasDetails(state, details) {
-    state.tupasDetails = details
-  },
-  setCandidates(state, data) {
-    state.candidates = data
-  },
-  setVoted(state, voted) {
-    state.voted = voted
-  }
+  // TODO
 }
 
 export const actions = {
