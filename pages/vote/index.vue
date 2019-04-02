@@ -15,32 +15,24 @@
         </li>
       </ul>
     </nav>
-    <img v-if="!tupasDetails" src="/tupas.png" @click="tupasLogin" />
-    <div v-else class="content">
+    <img src="/tupas.png" />
+    <div class="content">
       <h1>Vote candidate</h1>
-      <button class="button is-large is-primary" @click="vote">Vote</button>
+      <button class="button is-large is-primary">Vote</button>
     </div>
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 export default {
   name: 'Vote',
   computed: {
-    ...mapState(['tupasDetails']),
     selectedCandidate() {
       return this.$route.params.selectedCandidate
     }
   },
-  methods: {
-    tupasLogin() {
-      this.$store.dispatch('TUPAS_LOGIN')
-    },
-    vote() {
-      this.$store.dispatch('VOTE', this.selectedCandidate.id)
-    }
-  }
+  methods: {}
 }
 </script>
 <style lang="scss">
