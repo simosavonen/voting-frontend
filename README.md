@@ -19,6 +19,11 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
+# install & run mockserver for testing without "real" backend
+npm install -g mockserver
+mockserver -p 3002 -m mockserver/
+# Edit the nuxt.config.port proxy part to point to port 3002
+
 # build for production and launch server
 $ npm run build
 $ npm start
